@@ -1,29 +1,15 @@
-##############################################################
-#
-# AESD-ASSIGNMENTS
-#
-##############################################################
-
-AESD_ASSIGNMENTS_VERSION = 5bb8e44c602cea134852a731133f65ebc9238c42
-# Use SSH URL (not https)
-AESD_ASSIGNMENTS_SITE = git@github.com:cu-ecen-aeld/assignment-3-kaif-shahid-shaikh.git
-AESD_ASSIGNMENTS_SITE_METHOD = git
-AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
+AESD_ASSIGNMENTS_VERSION = HEAD
+AESD_ASSIGNMENTS_SITE = /home/kayf_06/assignment-1-kaif-shahid-shaikh
+AESD_ASSIGNMENTS_SITE_METHOD = local
 
 define AESD_ASSIGNMENTS_BUILD_CMDS
-	$(MAKE) -C $(@D)/finder-app CC="$(TARGET_CC)"
+	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D)/server clean
+	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D)/server CROSS_COMPILE="$(TARGET_CROSS)"
 endef
 
 define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
-	# /usr/bin payloads
-	$(INSTALL) -d 0755 $(TARGET_DIR)/usr/bin
-	$(INSTALL) -m 0755 $(@D)/finder-app/writer         $(TARGET_DIR)/usr/bin/
-	$(INSTALL) -m 0755 $(@D)/finder-app/finder.sh      $(TARGET_DIR)/usr/bin/
-	$(INSTALL) -m 0755 $(@D)/finder-app/finder-test.sh $(TARGET_DIR)/usr/bin/
-	# config files
-	$(INSTALL) -d 0755 $(TARGET_DIR)/etc/finder-app/conf
-	$(INSTALL) -m 0644 $(@D)/conf/* $(TARGET_DIR)/etc/finder-app/conf/
+	$(INSTALL) -D -m 0755 $(@D)/server/aesdsocket $(TARGET_DIR)/usr/bin/aesdsocket
+	$(INSTALL) -D -m 0755 $(@D)/server/aesdsocket-start-stop $(TARGET_DIR)/etc/init.d/S99aesdsocket
 endef
 
 $(eval $(generic-package))
-
