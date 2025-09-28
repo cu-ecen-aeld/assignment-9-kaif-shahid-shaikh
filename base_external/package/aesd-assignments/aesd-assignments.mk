@@ -1,6 +1,12 @@
 AESD_ASSIGNMENTS_VERSION = HEAD
-AESD_ASSIGNMENTS_SITE = /home/kayf_06/assignment-1-kaif-shahid-shaikh
-AESD_ASSIGNMENTS_SITE_METHOD = local
+
+ifeq ($(strip $(AESD_ASSIGNMENTS_OVERRIDE_SRCDIR)),)
+  AESD_ASSIGNMENTS_SITE        = https://github.com/cu-ecen-aeld/assignment-1-kaif-shahid-shaikh.git
+  AESD_ASSIGNMENTS_SITE_METHOD = git
+else
+  AESD_ASSIGNMENTS_SITE        = $(AESD_ASSIGNMENTS_OVERRIDE_SRCDIR)
+  AESD_ASSIGNMENTS_SITE_METHOD = local
+endif
 
 define AESD_ASSIGNMENTS_BUILD_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D)/server clean
@@ -13,3 +19,4 @@ define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
 endef
 
 $(eval $(generic-package))
+
