@@ -1,6 +1,8 @@
 ##############################################################
 # AESD-ASSIGNMENTS
 ##############################################################
+#CREDITS- CHATGPT AND INDUJA N for Helping me fix my AESD_ASSIGNMENTS_VERSION, i took the install target commands from CHATGPT and AESD__ASSIGNMENTS_VERSION lines from CHATGPT
+I was not using the latest version dynamically.
 
 # Point to YOUR A3 repo over SSH (not https)
 AESD_ASSIGNMENTS_SITE = git@github.com:cu-ecen-aeld/assignment-3-kaif-shahid-shaikh.git
