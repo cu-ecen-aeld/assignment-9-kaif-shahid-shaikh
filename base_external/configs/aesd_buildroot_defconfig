@@ -1,0 +1,2 @@
+BR2_ROOTFS_OVERLAY="../base_external/rootfs_overlay"
+BR2_PACKAGE_LDD=y
