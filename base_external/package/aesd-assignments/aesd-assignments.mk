@@ -8,7 +8,7 @@
 AESD_ASSIGNMENTS_SITE = git@github.com:cu-ecen-aeld/assignment-3-kaif-shahid-shaikh.git
 
 # If your default branch is 'main'
-AESD_ASSIGNMENTS_VERSION = 85a73ffe072e97b3ecbcdaafe296fe0f892f3793
+AESD_ASSIGNMENTS_VERSION = 38595b94fd075199ff94b6f834295b8cb962b56b
 
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
